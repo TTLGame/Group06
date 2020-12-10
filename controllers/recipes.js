@@ -9,16 +9,40 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 controller.searchByTitle = (ele) =>{
-    return models.Recipe.findAll({
+  return models.Recipe.findAll({
         where: {
           title: {
-            [Op.like]: '%'+ele+'%'
+            [Op.iLike]: '%'+ele+'%'
           }
-        }
+        },
+        raw: true
+      });
+    }
+//
+controller.searchBySummary = (ele) =>{
+  return models.Recipe.findAll({
+        where: {
+          summary: {
+            [Op.iLike]: '%'+ele+'%'
+          }
+        },
+        raw: true
       });
 
+    }
+//
+controller.searchByDescription = (ele) =>{
+  return models.Recipe.findAll({
+        where: {
+          description: {
+            [Op.iLike]: '%'+ele+'%'
+          }
+        },
+        raw: true
+      });
 
     }
+
 controller.getbyID = (ele) =>{
     var tmp = parseInt(ele);
     return models.Recipe.findAll({

@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "postgres",
-        "password": "linh8000",
+        "password": "tlong123",
         "database": "CookingRecipeDB",
         "host": "localhost",
         "dialect": "postgres"

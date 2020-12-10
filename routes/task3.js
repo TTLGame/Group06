@@ -10,7 +10,26 @@ router.get('/',function(req,res){
 
     async function getdata(){
         var recipe = await recipes_controller.searchByTitle(seached_word)
-        res.render('search',{recipe: recipe, footer:"Trịnh Thanh Long - 18127143"});
+        var search_summary = await recipes_controller.searchBySummary(seached_word)
+        
+        search_summary.forEach((element) =>{
+           let temp = recipe.find((ele)=>{
+               return ele.id == element.id
+           })
+           if (temp == undefined){
+               recipe.push(element)
+           }
+       })
+       var search_desciption = await recipes_controller.searchByDescription(seached_word)
+       search_desciption.forEach((element) =>{
+        let temp = recipe.find((ele)=>{
+            return ele.id == element.id
+        })
+        if (temp == undefined){
+            recipe.push(element)
+        }
+    })
+        res.render('search',{recipe: recipe, footer:"18127143- Trinh Thanh Long"});
     }
  
 })
