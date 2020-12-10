@@ -59,7 +59,9 @@ app.get('/about', function(req,res){
 app.get('/blog', function(req,res){
     res.render('blog');
 })
-
+// Question 3: search
+var search = require('./routes/task3')
+app.use('/search',search)
 app.listen(app.get('port'),function(){
     console.log("Listenning "+ app.get('port'));
 });
