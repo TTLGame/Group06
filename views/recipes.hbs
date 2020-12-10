@@ -27,17 +27,33 @@
 				<div>
 					<ul>
 						{{!-- 1 --}}
+		
+						<script>
+							var t = document.querySelector('#content ul');
+						</script>
+						
 						{{#each recipe}}
 						<script>
-							
-							var tmp = "{{@index}}"
+							var tmp = "{{id}}"
 							var index = parseInt(tmp);
+							var ingredient_array = []
+						</script>
+							{{#each ../ingredient}}
+								<script>
+								var tmp ="{{RecipeId}}"
+								var ingre_index = parseInt(tmp);
+								if (ingre_index == index){
+									ingredient_array.push("{{title}}")
+								}
+								</script> 
+							{{/each}}
+							<script>
 							console.log(index);
-							if (index % 2 == 0) {
+							if (index % 2 != 0) {
 								var items = ` <li>
-							<a href="index.html"><img src="{{smallImagePath}}" alt="Image"></a>
+							<a href="featured/{{id}}"><img src="{{smallImagePath}}" alt="Image"></a>
 							<div>
-								<h3><a href="featured.html">{{title}}</a></h3>
+								<h3><a href="featured/{{id}}">{{title}}</a></h3>
 								<p>
 									{{summary}}
 								</p>
@@ -46,27 +62,21 @@
 
 							} else {
 								var items = `<li>
-							<a href="index.html"><img src="{{smallImagePath}}" alt="Image"></a>
+							<a href="featured/{{id}}"><img src="{{smallImagePath}}" alt="Image"></a>
 							<div>
-								<h3><a href="featured.html">{{title}}</a></h3>
+								<h3><a href="featured/{{id}}">{{title}}</a></h3>
 								<div>
 									<p>
 										{{summary}}
 									</p><ul>
 									`;
 
-								var ingri = {ingredient}.filter((ele) => {
-									return (ele.RecipeId == recipe.id)
-								})
-
-								ingri.forEach(ele => {
+								ingredient_array.forEach(ele => {
 									items += `			<li>
-											{{ingri.title}}
+											${ele}
 										</li>`
 
 								})
-
-
 
 								items +=  `</ul>			
 								</div>
@@ -75,7 +85,7 @@
 							console.log(items)
 							}
 
-							var t = document.querySelector('#content ul');
+							
 							t.insertAdjacentHTML("beforeend", items)
 						</script>
 
