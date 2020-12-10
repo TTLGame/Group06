@@ -15,7 +15,13 @@ app.engine('hbs',hbs({
 app.set('view engine','hbs');
 app.set('port',(process.env.PORT || 5000));
 
-
+var models = require('./models')
+//CReate database
+app.get('/sync',function(req,res){
+    models.sequelize.sync().then(function(){
+        res.send('completed!');
+    })
+})
 
 app.get('/',function(req,res){
     res.render('index');
