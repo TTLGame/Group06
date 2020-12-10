@@ -15,7 +15,7 @@ router.get('/',function(req,res){
         //res.locals.item = {recipe,ingredient};
        
        
-        res.render('recipes',{recipe: recipe, ingredient:ingredient});
+        res.render('recipes',{recipe: recipe, ingredient:ingredient, footer: "18127142 - Trịnh Hoàng Long"});
     }
     
     

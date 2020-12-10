@@ -2,15 +2,23 @@ const controller = {};
 
 const models = require('../models');
 controller.getAll = () =>{
-    return models.Ingredient.findAll();
+    return models.Direction.findAll();
 }
-
 controller.getbyID = (ele) =>{
     var tmp = parseInt(ele);
-    return models.Ingredient.findAll({
+    return models.Direction.findAll({
         where: {
             RecipeId: tmp,
-        }
+            
+        },
+        order: [
+            ['order', 'ASC'],
+         
+        ],
+
+
       });
+
 }
+
 module.exports=controller;

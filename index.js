@@ -15,6 +15,10 @@ app.engine('hbs',hbs({
 
  
 }));
+app.get('/',function(req,res){
+    res.render('index',{footer: "Group 06"});
+
+})
 
 app.set('view engine','hbs');
 app.set('port',(process.env.PORT || 5000));
@@ -27,10 +31,7 @@ app.get('/sync',function(req,res){
     })
 })
 
-app.get('/',function(req,res){
-    res.render('index');
 
-})
 
 // Navigation
 // var Navi =[
@@ -60,6 +61,10 @@ app.get('/blog', function(req,res){
     res.render('blog');
 })
 
+
+// Question 3: search
+var search = require('./routes/task3')
+app.use('/search',search)
 app.listen(app.get('port'),function(){
     console.log("Listenning "+ app.get('port'));
 });
