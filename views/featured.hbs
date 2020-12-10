@@ -9,7 +9,7 @@
 						<a href="/recipes">A to Z Recipes</a>
 					</li>
 					<li class="current">
-						<a href="/featured">Featured Recipes</a>
+						<a href="/featured/1">Featured Recipes</a>
 					</li>
 					<li>
 						<a href="/videos">Videos</a>
@@ -26,49 +26,30 @@
 				<div id="content">
 					<div>
 						<div>
-							<h3>This is just a place holder, so you can see what the site would look like.</h3>
+							
+							<h3>{{recipe.title}}</h3>
 							<p>
-								This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
+								{{{recipe.description}}}
 							</p>
-							<a href="index.html"><img src="images/pork-barbeque.jpg" alt="Image"></a>
+							<a href="index.html"><img src="{{recipe.bigImagePath}}" alt="Image"></a>
 							<h5>INGREDIENTS</h5>
 							<ol class="ingredients">
+								{{#each ingredient}}
 								<li>
-									10 grms This is just a place holder
+									{{quantity}} {{title}}
 								</li>
-								<li>
-									5 slices This is just a place holder
-								</li>
-								<li>
-									12 pcs. This is just a place holder
-								</li>
-								<li>
-									1 liter This is just a place holder
-								</li>
-								<li>
-									3/4 cup This is just a place holder
-								</li>
-								<li>
-									1/4 cup This is just a place holder
-								</li>
+								
+								{{/each}}
 							</ol>
 							<h5>DIRECTIONS</h5>
 							<ol class="directions">
+								{{#each direction}}
 								<li>
-									You can remove any link to our website from this website template.
+								{{description}} 
 								</li>
-								<li>
-									You&#39;re free to use this website template without linking back to us.
-								</li>
-								<li>
-									This is just a place holder, so you can see what the site would look like.
-								</li>
-								<li>
-									You can remove any link to our website from this website template.
-								</li>
-								<li>
-									You&#39;re free to use this website template without linking back to us.
-								</li>
+								
+								{{/each}}
+								
 							</ol>
 						</div>
 					</div>
@@ -78,28 +59,28 @@
 		<div>
 			<div>
 				<h3>Cooking Video</h3>
-				<a href="videos.html"><img src="images/cooking-video.png" alt="Image"></a>
+				<a href="videos.html"><img src="/images/cooking-video.png" alt="Image"></a>
 				<span>Vegetable &amp; Rice Topping</span>
 			</div>
 			<div>
 				<h3>Featured Recipes</h3>
 				<ul id="featured">
 					<li>
-						<a href="recipes.html"><img src="images/sandwich.jpg" alt="Image"></a>
+						<a href="recipes.html"><img src="/images/sandwich.jpg" alt="Image"></a>
 						<div>
 							<h2><a href="recipes.html">Ham Sandwich</a></h2>
 							<span>by: Anna</span>
 						</div>
 					</li>
 					<li>
-						<a href="recipes.html"><img src="images/biscuit-and-coffee.jpg" alt="Image"></a>
+						<a href="recipes.html"><img src="/images/biscuit-and-coffee.jpg" alt="Image"></a>
 						<div>
 							<h2><a href="recipes.html">Biscuit &amp; Sandwich</a></h2>
 							<span>by: Sarah</span>
 						</div>
 					</li>
 					<li>
-						<a href="recipes.html"><img src="images/pizza.jpg" alt="Image"></a>
+						<a href="recipes.html"><img src="/images/pizza.jpg" alt="Image"></a>
 						<div>
 							<h2><a href="recipes.html">Delicious Pizza</a></h2>
 							<span>by: Rico</span>
